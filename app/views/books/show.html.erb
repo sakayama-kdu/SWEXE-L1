@@ -1,0 +1,24 @@
+<h1>書籍詳細</h1>
+
+<p>
+  <strong>タイトル:</strong>
+  <%= @book.title %>
+</p>
+
+<p>
+  <strong>著者:</strong>
+  <%= @book.author %>
+</p>
+
+<p>
+  <strong>価格:</strong>
+  <%= @book.price %>円
+</p>
+
+<p>
+  <strong>出版日:</strong>
+  <%= @book.published_on %>
+</p>
+
+<%= link_to "編集", edit_book_path(@book) %> |
+<%= link_to "一覧へ", books_path %>

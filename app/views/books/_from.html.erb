@@ -1,0 +1,25 @@
+<%= form_with model: @book do |f| %>
+
+  <p>
+    <%= f.label :title, "タイトル" %><br>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :author, "著者" %><br>
+    <%= f.text_field :author %>
+  </p>
+
+  <p>
+    <%= f.label :price, "価格" %><br>
+    <%= f.number_field :price %>
+  </p>
+
+  <p>
+    <%= f.label :published_on, "出版日" %><br>
+    <%= f.date_field :published_on %>
+  </p>
+
+  <%= f.submit %>
+
+<% end %>
