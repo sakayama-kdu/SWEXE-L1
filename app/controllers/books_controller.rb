@@ -18,10 +18,10 @@ class BooksController < ApplicationController
     if @book.save
       redirect_to @book
     else
-      render :new
+      puts @book.errors.full_messages
+      render :new, status: :unprocessable_entity
     end
   end
-
   def edit
   end
 
