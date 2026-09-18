@@ -1,25 +1,38 @@
-<%= form_with model: @book do |f| %>
+<%= form_with model: @book, class: "book-form" do |f| %>
 
-  <p>
-    <%= f.label :title %>
+  <% if @book.errors.any? %>
+    <div class="error-box">
+      <h3><%= @book.errors.count %>件のエラーがあります</h3>
+
+      <ul>
+        <% @book.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-field">
+    <%= f.label :タイトル %>
     <%= f.text_field :title %>
-  </p>
+  </div>
 
-  <p>
-    <%= f.label :author %>
+  <div class="form-field">
+    <%= f.label :著者 %>
     <%= f.text_field :author %>
-  </p>
+  </div>
 
-  <p>
-    <%= f.label :price %>
+  <div class="form-field">
+    <%= f.label :価格 %>
     <%= f.number_field :price %>
-  </p>
+  </div>
 
-  <p>
-    <%= f.label :published_on %>
+  <div class="form-field">
+    <%= f.label :出版日 %>
     <%= f.date_field :published_on %>
-  </p>
+  </div>
 
-  <%= f.submit "登録" %>
-
+  <div class="form-actions">
+    <%= f.submit "変更を保存", class: "submit-button" %>
+  </div>
 <% end %>
