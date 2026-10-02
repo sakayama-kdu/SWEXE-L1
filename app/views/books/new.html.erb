@@ -1,5 +1,11 @@
-<h1>書籍登録</h1>
+<section class="page-heading">
+  <p class="page-eyebrow">NEW BOOK</p>
+  <h1>書籍を登録</h1>
+  <p>書籍の情報を入力して、蔵書リストに追加してください。</p>
+</section>
 
 <%= render "form" %>
 
-<%= link_to "戻る", books_path %>
+<nav class="page-actions" aria-label="ページの操作">
+  <%= link_to "一覧へ戻る", books_path %>
+</nav>

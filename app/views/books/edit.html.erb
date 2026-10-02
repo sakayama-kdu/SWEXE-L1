@@ -1,5 +1,11 @@
-<h1>書籍編集</h1>
+<section class="page-heading">
+	<p class="page-eyebrow">EDIT BOOK</p>
+	<h1>書籍情報を編集</h1>
+	<p>変更内容を入力し、保存してください。</p>
+</section>
 
 <%= render "form" %>
 
-<%= link_to "戻る", books_path %>
+<nav class="page-actions" aria-label="ページの操作">
+	<%= link_to "一覧へ戻る", books_path %>
+</nav>

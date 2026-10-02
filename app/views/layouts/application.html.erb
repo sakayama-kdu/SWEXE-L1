@@ -1,36 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
   <head>
-    <title><%= content_for(:title) || "Swexe L1" %></title>
+    <title><%= content_for(:title) || "書籍管理システム" %></title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="application-name" content="Swexe L1">
+    <meta name="application-name" content="書籍管理システム">
     <meta name="mobile-web-app-capable" content="yes">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= yield :head %>
-
-    <%# Enable PWA manifest for installable apps (make sure to enable in config/routes.rb too!) %>
-    <%#= tag.link rel: "manifest", href: pwa_manifest_path(format: :json) %>
-
-    <link rel="icon" href="/icon.png" type="image/png">
-    <link rel="icon" href="/icon.svg" type="image/svg+xml">
-    <link rel="apple-touch-icon" href="/icon.png">
-
-    <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <% if flash[:notice] %>
-      <p class="notice"><%= flash[:notice] %></p>
-    <% end %>
+    <header class="site-header">
+      <div class="header-inner">
+        <%= link_to root_path, class: "brand" do %>
+          <span class="brand-mark" aria-hidden="true">B</span>
+          <span>
+            <strong>書籍管理システム</strong>
+            <small>あなたの蔵書を、ひとつずつ。</small>
+          </span>
+        <% end %>
+      </div>
+    </header>
 
-    <% if flash[:alert] %>
-      <p class="alert"><%= flash[:alert] %></p>
-    <% end %>
-    <%= yield %>
+    <div class="container">
+      <aside class="sidebar" aria-label="サイドバー">
+        <p class="sidebar-label">LIBRARY</p>
+        <h2>メニュー</h2>
+        <nav aria-label="メインメニュー">
+          <ul>
+            <li><%= link_to "書籍一覧", books_path %></li>
+            <li><%= link_to "新規登録", new_book_path %></li>
+          </ul>
+        </nav>
+        <div class="sidebar-note">
+          <p>本との出会いを記録して、あなただけの蔵書リストを作りましょう。</p>
+        </div>
+      </aside>
+
+      <main class="content">
+        <% if flash[:notice] %>
+          <p class="notice" role="status"><%= flash[:notice] %></p>
+        <% end %>
+
+        <% if flash[:alert] %>
+          <p class="alert" role="alert"><%= flash[:alert] %></p>
+        <% end %>
+
+        <%= yield %>
+      </main>
+    </div>
+
+    <footer class="site-footer">
+      <p>© <%= Date.current.year %> 書籍管理システム</p>
+    </footer>
   </body>
 </html>

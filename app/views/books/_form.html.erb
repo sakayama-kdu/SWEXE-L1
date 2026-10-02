@@ -13,26 +13,26 @@
   <% end %>
 
   <div class="form-field">
-    <%= f.label :タイトル %>
+    <%= f.label :title, "タイトル" %>
     <%= f.text_field :title %>
   </div>
 
   <div class="form-field">
-    <%= f.label :著者 %>
+    <%= f.label :author, "著者" %>
     <%= f.text_field :author %>
   </div>
 
   <div class="form-field">
-    <%= f.label :価格 %>
+    <%= f.label :price, "価格" %>
     <%= f.number_field :price %>
   </div>
 
   <div class="form-field">
-    <%= f.label :出版日 %>
+    <%= f.label :published_on, "出版日" %>
     <%= f.date_field :published_on %>
   </div>
 
   <div class="form-actions">
-    <%= f.submit "変更を保存", class: "submit-button" %>
+    <%= f.submit(@book.new_record? ? "書籍を登録" : "変更を保存", class: "submit-button") %>
   </div>
 <% end %>

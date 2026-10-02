@@ -2,20 +2,20 @@
   "name": "SwexeL1",
   "icons": [
     {
-      "src": "/icon.png",
+      "src": "<%= image_path("icon.png") %>",
       "type": "image/png",
       "sizes": "512x512"
     },
     {
-      "src": "/icon.png",
+      "src": "<%= image_path("icon.png") %>",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "maskable"
     }
   ],
-  "start_url": "/",
+  "start_url": "<%= root_path %>",
   "display": "standalone",
-  "scope": "/",
+  "scope": "<%= root_path %>",
   "description": "SwexeL1.",
   "theme_color": "red",
   "background_color": "red"
